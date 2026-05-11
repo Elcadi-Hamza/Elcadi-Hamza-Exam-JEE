@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import net.hamza.gestiondecontractsassurance.Enums.AssuranceStatus;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -21,5 +22,12 @@ public abstract class ContratAssurance {
 
     @Enumerated(EnumType.STRING)
     private AssuranceStatus status;
+
+    @ManyToOne
+    private Client client;
+
+    @OneToMany(mappedBy = "contratAssurance", fetch = FetchType.LAZY)
+    private List<Paiement> paiements;
+
 
 }

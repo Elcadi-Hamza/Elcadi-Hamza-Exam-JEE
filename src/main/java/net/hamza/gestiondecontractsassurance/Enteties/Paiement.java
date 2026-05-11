@@ -19,4 +19,7 @@ public class Paiement {
 
     @Enumerated(EnumType.STRING)
     private TypePaiment type;
+
+    @ManyToOne
+    private ContratAssurance contratAssurance;
 }
